@@ -7,7 +7,7 @@ COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
 RUN curl -s -o /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/centos/9/tailscale.repo
 
-RUN dnf remove -y firefox 
+RUN dnf remove -y firefox tcl
 
 RUN dnf in -y alacritty \
               fedpkg \
