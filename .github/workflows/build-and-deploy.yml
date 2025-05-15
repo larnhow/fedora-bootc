@@ -26,13 +26,8 @@ jobs:
 
           - name: 'Build Silverblue Image'
             run: |
-              podman build -f Containerfile --tag ghcr.io/bshephar/fedora-bootc:rawhide-silverblue --build-arg=FEDORA_DE=silverblue
-              podman push ghcr.io/bshephar/fedora-bootc:rawhide-silverblue
-
-          - name: "Build Kinoite Image"
-            run: |
-              podman build -f Containerfile --tag ghcr.io/bshephar/fedora-bootc:rawhide-kinoite --build-arg=FEDORA_DE=kinoite
-              podman push ghcr.io/bshephar/fedora-bootc:rawhide-kinoite
+              podman build -f Containerfile --tag ghcr.io/larnhow/fedora-bootc:rawhide-silverblue --build-arg=FEDORA_DE=silverblue
+              podman push ghcr.io/larnhow/fedora-bootc:42-silverblue
 
 
 
