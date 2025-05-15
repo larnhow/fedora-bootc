@@ -1,11 +1,11 @@
-ARG FEDORA_MAJOR_VERSION=rawhide
+ARG FEDORA_MAJOR_VERSION=42
 ARG FEDORA_DE=silverblue
 
 FROM quay.io/fedora-ostree-desktops/${FEDORA_DE}:${FEDORA_MAJOR_VERSION}
 
-COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
+#COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
-RUN curl -s -o /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/centos/9/tailscale.repo
+#RUN curl -s -o /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/centos/9/tailscale.repo
 
 RUN dnf remove -y firefox tcl
 
@@ -31,8 +31,7 @@ RUN dnf in -y alacritty \
 	      tox \
               virt-install \
               waybar \
-              zsh \
-              tailscale && \
+              fish && \
 
     dnf clean all && \
     systemctl set-default graphical.target 
