@@ -9,6 +9,16 @@ FROM quay.io/fedora-ostree-desktops/${FEDORA_DE}:${FEDORA_MAJOR_VERSION}
 
 RUN dnf remove -y firefox tcl
 
+RUN dnf config-manager setopt rpmfusion-nonfree-nvidia-driver.enabled=1
+
+RUN dnf in -y akmod-nvidia
+
+RUN kver=$(cd /usr/lib/modules && echo *) && \
+        dkms autoinstall -k $kver && \
+        akmods --force --kernels $kver
+
+
+
 RUN dnf in -y alacritty \
               fedpkg \
               rust \
