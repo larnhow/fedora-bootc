@@ -26,11 +26,10 @@ RUN dnf in -y alacritty \
               qemu \
               qemu-kvm \
               ripgrep \
-              tailscale \
               tmux \
-	      tox \
               virt-install \
-              waybar \
+	      gstreamer1-plugin-openh264 \
+	      openh264 \
               fish && \
 
     dnf clean all && \
