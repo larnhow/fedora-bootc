@@ -14,7 +14,6 @@ RUN dnf config-manager setopt rpmfusion-nonfree-nvidia-driver.enabled=1
 RUN dnf in -y akmod-nvidia
 
 RUN kver=$(cd /usr/lib/modules && echo *) && \
-        dkms autoinstall -k $kver && \
         akmods --force --kernels $kver
 
 
